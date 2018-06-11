@@ -19,10 +19,40 @@ and open the template in the editor.
         ?>
         <div class="container">
             <div class="row">
-                <div clas="col-md-offset-5 col-md-2 col-md-offset-5" >
-                    <button type="button" onclick="redesNeurais2()" class="botao">Iniciar neurônio</button>
-                    
+                <div class="col-md-12"><button type="button" onclick="redesNeurais1()" class="button button-primary form-control">Iniciar Neurônio</button></div>
+                <div class="col-md-12"><p id="titulo1"></p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
                     <p id="entradas"></p>
+                    <p id="entradax1"></p>
+                    <p id="entradax2"></p>             
+                    <p id="entradax3"></p>
+                </div>
+                <div class="col-md-4">
+                    <p id="pesosEntradas"></p>
+                    <p id="pesoEntradaW14"></p>
+                    <p id="pesoEntradaW15"></p>             
+                    <p id="pesoEntradaW24"></p>
+                    <p id="pesoEntradaW25"></p>
+                    <p id="pesoEntradaW34"></p>             
+                    <p id="pesoEntradaW35"></p>
+                    <p id="pesoEntradaW46"></p>
+                    <p id="pesoEntradaW56"></p>    
+                </div>
+                <div class="col-md-4">
+                    <p id="pesosBayes"></p>
+                    <p id="pesoBayesO4"></p>
+                    <p id="pesoBayesO5"></p>
+                    <p id="pesoBayesO6"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><p id="titulo2"></p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="buttonContinuar"></p>
                 </div>
             </div>
         </div>
