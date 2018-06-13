@@ -76,9 +76,8 @@ function redesNeurais1() {
     document.getElementById("titulo2").innerHTML = "<h3>Passo 2: Ativação do Neurônio</h3>";
     //document.getElementById("buttonContinuar").innerHTML = "<button onClick='redesNeurais2()' class='button button-primary form-control'>Passo 2: Ativação do Neurônio -></button>";
     
-    var y3 = Math.s(1*0.5+1*0,4-1*0,8);
-    alert(y3);
-    
+    //var y3 = Math.s(1*0.5+1*0,4-1*0,8);
+    //alert(y3);
 }
 
 function redesNeurais2(entradas, pesosEntradas, pesosBayes) {

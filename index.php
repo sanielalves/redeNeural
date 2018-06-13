@@ -10,8 +10,25 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <script type="text/javascript" src="redesNeurais.js"></script>
-        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <title></title>
+        <!--<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+        <script src="Perceptron Simples.js" type="text/javascript"></script>
+        <title>Redes neurais</title>
+        <script>
+            var training_sets = [ //entradas e suas respectivas saídas para o treinamento da rede
+                {inputs: [10, 100], output:0},
+                {inputs: [17, 90], output:0},
+                {inputs: [17, 40], output:0},
+                {inputs: [22, 25], output:1},
+                {inputs: [24, 30], output:1},
+                {inputs: [50, 10], output:1},
+            ];
+            
+            var neuron = new Perceptron(); //instanciando a função Perceptron e inicializando com valor de taxa de aprendizado e interações
+            neuron.init(0.15, 1000);
+            neuron.train(training_sets);
+            
+            console.log(neuron.run([30, 32]));
+        </script>
     </head>
     <body>
         <?php
