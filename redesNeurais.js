@@ -44,7 +44,7 @@ function redesNeuraisTeste() {
     console.log(myNetwork.activate([1, 1])); // [0.012950087641929467]
 }
 
-function redesNeurais1() {
+function inicializarNeuronio() {
 
     /*Inicialização do neurônio*/
     document.getElementById("titulo1").innerHTML = "<h3>Passo 1: Inicializando Neurônio</h3>";
@@ -54,7 +54,7 @@ function redesNeurais1() {
     document.getElementById("entradas").innerHTML = "<h5>Sinais de entrada</h5>";
     document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
     document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
-    document.getElementById("entradax3").innerHTML = "x3: " + entradas.x3;
+    document.getElementById("saidaEsperada").innerHTML = "x3: " + entradas.x3;
 
     var pesosEntrada = {w14: 0.2, w15: -0.3, w24: 0.4, w25: 0.1, w34: -0.5, w35: 0.2, w46: -0.3, w56: -0.2};
     document.getElementById("pesosEntradas").innerHTML = "<h5>Pesos sinápticos</h5>";
@@ -72,13 +72,28 @@ function redesNeurais1() {
     document.getElementById("pesoBayesO4").innerHTML = "O4: " + pesosBayes.o4;
     document.getElementById("pesoBayesO5").innerHTML = "O5: " + pesosBayes.o5;
     document.getElementById("pesoBayesO6").innerHTML = "O6: " + pesosBayes.o6;
-    
+
     document.getElementById("titulo2").innerHTML = "<h3>Passo 2: Ativação do Neurônio</h3>";
     //document.getElementById("buttonContinuar").innerHTML = "<button onClick='redesNeurais2()' class='button button-primary form-control'>Passo 2: Ativação do Neurônio -></button>";
-    
-    //var y3 = Math.s(1*0.5+1*0,4-1*0,8);
-    //alert(y3);
+
+    ativacaoNeuronio(entradas, pesosEntrada, pesosBayes);
 }
+
+function ativacaoNeuronio(entradas, pesosEntrada, pesosBayes) {
+    //Calculando camada oculta
+    //var y3 = Math.s(1*0.5+1*0,4-1*0,8);
+    var euler = 2.718281828;
+    var f = (entradas.x1 * pesosEntrada.w14)+(entradas.x2 * pesosEntrada.w24) + (entradas.x3 * pesosEntrada.w34) - (-1 * pesosBayes.o4); 
+    resultado = 1 / (1 + Math.pow(euler, -(f)));
+        alert(resultado);
+}
+
+
+
+
+
+
+
 
 function redesNeurais2(entradas, pesosEntradas, pesosBayes) {
     for (var i = 1; i === entradas; i++) {

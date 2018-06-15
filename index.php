@@ -14,19 +14,19 @@ and open the template in the editor.
         <script src="Perceptron Simples.js" type="text/javascript"></script>
         <title>Redes neurais</title>
         <script>
-            var training_sets = [ //entradas e suas respectivas saídas para o treinamento da rede
-                {inputs: [10, 100], output:0},
-                {inputs: [17, 90], output:0},
-                {inputs: [17, 40], output:0},
-                {inputs: [22, 25], output:1},
-                {inputs: [24, 30], output:1},
-                {inputs: [50, 10], output:1},
+            var training_sets = [//entradas e suas respectivas saídas para o treinamento da rede
+                {inputs: [10, 100], output: 0},
+                {inputs: [17, 90], output: 0},
+                {inputs: [17, 40], output: 0},
+                {inputs: [22, 25], output: 1},
+                {inputs: [24, 30], output: 1},
+                {inputs: [50, 10], output: 1},
             ];
-            
+
             var neuron = new Perceptron(); //instanciando a função Perceptron e inicializando com valor de taxa de aprendizado e interações
             neuron.init(0.15, 1000);
             neuron.train(training_sets);
-            
+
             console.log(neuron.run([30, 32]));
         </script>
     </head>
@@ -36,7 +36,7 @@ and open the template in the editor.
         ?>
         <div class="container">
             <div class="row">
-                <div class="col-md-12"><button type="button" onclick="redesNeurais1()" class="button button-primary form-control">Iniciar Neurônio</button></div>
+                <div class="col-md-12"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></div>
                 <div class="col-md-12"><p id="titulo1"></p></div>
             </div>
             <div class="row">
@@ -44,7 +44,7 @@ and open the template in the editor.
                     <p id="entradas"></p>
                     <p id="entradax1"></p>
                     <p id="entradax2"></p>             
-                    <p id="entradax3"></p>
+                    <p id="saidaEsperada"></p>
                 </div>
                 <div class="col-md-4">
                     <p id="pesosEntradas"></p>
@@ -66,12 +66,18 @@ and open the template in the editor.
             </div>
             <div class="row">
                 <div class="col-md-12"><p id="titulo2"></p></div>
+                <div>
+                    <p></p>
+                </div>
             </div>
+
+            <!--
             <div class="row">
                 <div class="col-md-12">
                     <p id="buttonContinuar"></p>
                 </div>
             </div>
+            -->
         </div>
     </body>
 </html>
