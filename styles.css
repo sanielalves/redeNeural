@@ -10,12 +10,67 @@ and open the template in the editor.
 
 
 
-img{
+#img{
+    z-index: 0;
     position: absolute;
     margin-left: 160px;
 }
 
 #botao{
     margin-top: 350px;
+    text-align: center;
 }
 
+#x1{
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 65px 175px;
+}
+
+#x2{
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 175px 175px;
+}
+
+#y{
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 110px 840px;
+}
+
+#Q3{
+    z-index: 4;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 17px 560px;
+}
+
+#Q4{
+    z-index: 5;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 126px 560px;
+}
+
+#Q5{
+    z-index: 6;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    margin: 54px 778px;
+}
+
+#aprendizado{
+    width: 20%;
+    margin-left: 445px;
+    text-align: center;
+}

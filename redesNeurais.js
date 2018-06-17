@@ -1,60 +1,24 @@
-// create the network
 
-function redesNeuraisTeste() {
-    const {Layer, Network} = window.synaptic;
-    var inputLayer = new Layer(2);
-    var hiddenLayer = new Layer(3);
-    var outputLayer = new Layer(1);
-    inputLayer.project(hiddenLayer);
-    hiddenLayer.project(outputLayer);
-    var myNetwork = new Network({
-        input: inputLayer,
-        hidden: [hiddenLayer],
-        output: outputLayer
-    });
-// train the network - learn XOR
-    var learningRate = .3;
-    for (var i = 0; i < 20000; i++)
-    {
-// 0,0 => 0
-        myNetwork.activate([0, 0]);
-        myNetwork.propagate(learningRate, [0]);
-        // 0,1 => 1
-        myNetwork.activate([0, 1]);
-        myNetwork.propagate(learningRate, [1]);
-        // 1,0 => 1
-        myNetwork.activate([1, 0]);
-        myNetwork.propagate(learningRate, [1]);
-        // 1,1 => 0
-        myNetwork.activate([1, 1]);
-        myNetwork.propagate(learningRate, [0]);
-    }
-
-// test the network
-    console.log(myNetwork.activate([0, 0])); // [0.015020775950893527]
-    console.log(myNetwork.activate([0, 1])); // [0.9815816381088985]
-    console.log(myNetwork.activate([1, 0])); // [0.9871822457132193]
-    console.log(myNetwork.activate([1, 1])); // [0.012950087641929467]
-}
-
-function inicializarNeuronio(id) {
+function inicializarNeuronio() {
     var x1 = document.getElementById("x1").value;
     var x2 = document.getElementById("x2").value;
     var y = document.getElementById("y").value;
-    alert(y);
-
+    var Q3 = document.getElementById("Q3").value;
+    var Q4 = document.getElementById("Q4").value;
+    var Q5 = document.getElementById("Q5").value;
+    var aprendizado = document.getElementById("aprendizado").value;
+    
     /*Inicialização do neurônio*/
-    var taxaAprendizado = 0.1;
     document.getElementById("titulo1").innerHTML = "<h3>Passo 1: Inicializando Neurônio</h3>";
-    document.getElementById("taxaAprendizado").innerHTML = "<h5>Taxa de Aprendizado: </h5>" + taxaAprendizado;
+    document.getElementById("taxaAprendizado").innerHTML = "<h5>Taxa de Aprendizado: </h5>" + aprendizado;
 
     //var entradas = { x1:Math.random(), x2:Math.random(), x3:Math.random()};
     var entradas = {x1: x1, x2: x2, y: y};
     var pesosEntrada = {w13: 0.5, w14: 0.9, w23: 0.4, w24: 1.0, w35: -1.2, w45: 1.1};
-    var bayes = {b3: -1, b4: -1, b5: -1, o3: 0.8, o4: -0.1, o5: 0.3};
+    var bayes = {b3: Q3, b4: Q4, b5: Q5, o3: 0.8, o4: -0.1, o5: 0.3};
 
     var ciclo;
-    for (ciclo = 0; ciclo < 3; ciclo++) {
+    for (ciclo = 1; ciclo < 225; ciclo++) {
         document.getElementById("entradas").innerHTML = "<h5>Sinais de entrada</h5>";
         document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
         document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
@@ -72,14 +36,15 @@ function inicializarNeuronio(id) {
         document.getElementById("pesoBayesO3").innerHTML = "<strong> Bayes3: </strong> " + bayes.b3 + "  |  <strong> O3: </strong>" + bayes.o3;
         document.getElementById("pesoBayesO4").innerHTML = "<strong> Bayes4: </strong> " + bayes.b4 + "  |  <strong> O4: </strong> " + bayes.o4;
         document.getElementById("pesoBayesO5").innerHTML = "<strong> Bayes5: </strong> " + bayes.b5 + "  |  <strong> O5: </strong> " + bayes.o5;
+        
         //document.getElementById("buttonContinuar").innerHTML = "<button onClick='redesNeurais2()' class='button button-primary form-control'>Passo 2: Ativação do Neurônio -></button>";
 
         document.getElementById("titulo4").innerHTML = "<h3>Passo 4: Interação</h3>";
         document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + ciclo;
 
         var saidas = ativacaoNeuronio(entradas, pesosEntrada, bayes);
-        var interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, taxaAprendizado);
-        console.log(saidas.y3);
+        var interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
+        console.log("Ciclo: " + ciclo + " | Saída: " + saidas.y5);
         pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
         bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
     }
@@ -134,16 +99,16 @@ function treinarNeuronio(saidas, entradas, pesosEntrada, bayes, taxaAprendizado)
     //Atualizar os pesos do neurônio de saída
     var w35 = pesosEntrada.w35 - cW35;
     var w45 = pesosEntrada.w45 - cW45;
-    var o5 = bayes.o5 - cO5;
+    var o5 = bayes.o5 + cO5;
 
     //Atualizar os pesos do neurônio ocultos
     var w13 = pesosEntrada.w13 - cW13;
     var w23 = pesosEntrada.w23 - cW23;
-    var o3 = bayes.o3 - cO3;
+    var o3 = bayes.o3 + cO3;
 
     var w14 = pesosEntrada.w14 - cW14;
     var w24 = pesosEntrada.w24 - cW24;
-    var o4 = bayes.o4 - cO4;
+    var o4 = bayes.o4 + cO4;
 
     document.getElementById("camadaSaida2").innerHTML = "<h5>Camada de Saída</h5>";
     document.getElementById("erroSaida").innerHTML = "<strong>Erro camada de saída (O5):</strong> " + erroSaida;
