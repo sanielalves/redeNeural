@@ -8,9 +8,14 @@ and open the template in the editor.
     Author     : Saniel
 */
 
-.botao{
-    align-self: center;
-    align-items: center;
-    alignment-adjust: central;
-    
+
+
+img{
+    position: absolute;
+    margin-left: 160px;
 }
+
+#botao{
+    margin-top: 350px;
+}
+

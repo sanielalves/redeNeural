@@ -10,7 +10,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <script type="text/javascript" src="redesNeurais.js"></script>
-        <!--<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="Perceptron Simples.js" type="text/javascript"></script>
         <title>Redes neurais</title>
         <script>
@@ -36,48 +36,87 @@ and open the template in the editor.
         ?>
         <div class="container">
             <div class="row">
-                <div class="col-md-12"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></div>
-                <div class="col-md-12"><p id="titulo1"></p></div>
+                <div class="col-md-12">
+                    <input class="form-control" id="x1" type="text" value="1" placeholder="Entrada x1. Se não informar o valor assumido será 1"/>
+                    <input class="form-control" id="x2" type="text" value="1" placeholder="Entrada x2. Se não informar o valor assumido será 1"/>
+                    <input class="form-control" id="y" type="text" value="0" placeholder="Valor esperado y. Se não informar o valor assumido será 0"/>            
+                </div>
+                <div class="col-md-12">
+                    <img src="img-rede-neural.png" id="img">
+                </div>
+                <div class="col-md-12" id="botao">
+                    <div class="col-md-12"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></div>
+                    <div class="col-md-12"><br><p id="titulo1"></p></div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <p id="entradas"></p>
                     <p id="entradax1"></p>
                     <p id="entradax2"></p>             
                     <p id="saidaEsperada"></p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <p id="pesosEntradas"></p>
-                    <p id="pesoEntradaW14"></p>
-                    <p id="pesoEntradaW15"></p>             
+                    <p id="pesoEntradaW13"></p>
+                    <p id="pesoEntradaW14"></p>             
+                    <p id="pesoEntradaW23"></p>
                     <p id="pesoEntradaW24"></p>
-                    <p id="pesoEntradaW25"></p>
-                    <p id="pesoEntradaW34"></p>             
-                    <p id="pesoEntradaW35"></p>
-                    <p id="pesoEntradaW46"></p>
-                    <p id="pesoEntradaW56"></p>    
+                    <p id="pesoEntradaW35"></p>             
+                    <p id="pesoEntradaW45"></p>   
                 </div>
-                <div class="col-md-4">
-                    <p id="pesosBayes"></p>
+                <div class="col-md-3">
+                    <p id="bayes"></p>
+                    <p id="pesoBayesO3"></p>
                     <p id="pesoBayesO4"></p>
                     <p id="pesoBayesO5"></p>
-                    <p id="pesoBayesO6"></p>
+                </div>
+                <div class="col-md-3">
+                    <p id="taxaAprendizado"></p>
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12"><p id="titulo2"></p></div>
-                <div>
-                    <p></p>
+                <div class="col-md-6">
+                    <p id="camadasOcultas"></p>
+                    <p id="y3"></p>
+                    <p id="y4"></p>
+                </div>
+                <div class="col-md-6">
+                    <p id="camadaSaida"></p>
+                    <p id="y5"></p>
                 </div>
             </div>
-
-            <!--
             <div class="row">
-                <div class="col-md-12">
-                    <p id="buttonContinuar"></p>
+                <div class="col-md-12"><p id="titulo3"></p></div>
+                <div class="col-md-6">
+                    <p id="camadaSaida2"></p>
+                    <p id="erroSaida"></p>
+                    <p id="correcaoPesoW35"></p>
+                    <p id="correcaoPesoW45"></p>
+                    <p id="correcaoPesoO5"></p>
+                </div>
+                <div class="col-md-3">
+                    <p id="camadasOcultas2"></p>
+                    <p id="erroPesoO3"></p>
+                    <p id="erroPesoO4"></p>
+                    <p id="correcaoPesoO3"></p>
+                    <p id="correcaoPesoO4"></p>
+
+                </div>
+                <div class="col-md-3">
+                    <br>
+                    <p id="correcaoPesoW13"></p>
+                    <p id="correcaoPesoW23"></p>
+                    <p id="correcaoPesoW14"></p>
+                    <p id="correcaoPesoW24"></p>
                 </div>
             </div>
-            -->
+            <div class="row">
+                <div class="col-md-12"><p id="titulo4"></p></div>
+                <div class="col-md-12"><div id="interacao"></div></div>
+            </div>
         </div>
     </body>
 </html>
