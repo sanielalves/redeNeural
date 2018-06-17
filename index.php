@@ -10,8 +10,8 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <script type="text/javascript" src="redesNeurais.js"></script>
-        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="Perceptron Simples.js" type="text/javascript"></script>
+        <!--<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+        <!--<script src="Perceptron Simples.js" type="text/javascript"></script>-->
         <title>Redes neurais</title>
     </head>
     <body>
@@ -33,7 +33,7 @@ and open the template in the editor.
                     <img id='img' src="img-rede-neural.png" id="img">
                 </div>
                 <div class="col-md-12" id="botao">
-                    Taxa de aprendizagem <input class="form-control" id="aprendizado" type="text" value="0.1" placeholder="Taxa de aprendizado"/> 
+                    <span>Taxa de aprendizagem</span><input class="form-control" id="aprendizado" type="text" value="0.1" placeholder="Taxa de aprendizado"/> 
                     <br>
                     <a href="#titulo1"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></a>
                 </div>
