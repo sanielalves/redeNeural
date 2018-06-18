@@ -58,17 +58,17 @@ function inicializarNeuronio() {
     document.getElementById("limpar").innerHTML = "LIMPAR TUDO";
 
     while (saidas.y5 > y) {
+        //alert("w13: " + pesosEntrada.w13 + " - w14: " + pesosEntrada.w14 + " - w23: " + pesosEntrada.w23 + " - w24: " + pesosEntrada.w24 + " - w35: " + pesosEntrada.w35 + " - w45: " + pesosEntrada.w45);
         document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + contEpoca;
         console.log("Épocas: " + contEpoca + " | Saída: " + saidas.y5);
-        //alert("w13: " + pesosEntrada.w13 + " - w14: " + pesosEntrada.w14 + " - w23: " + pesosEntrada.w23 + " - w24: " + pesosEntrada.w24 + " - w35: " + pesosEntrada.w35 + " - w45: " + pesosEntrada.w45);
+        if (contEpoca == epocas) {
+            break;
+        }
+
         saidas = ativacaoNeuronio(entradas, pesosEntrada, bayes);
         interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
         pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
         bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
-
-        if (contEpoca == epocas) {
-            break;
-        }
 
         document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
         document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
