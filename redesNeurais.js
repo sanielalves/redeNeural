@@ -66,6 +66,10 @@ function inicializarNeuronio() {
         pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
         bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
 
+        if (contEpoca == epocas) {
+            break;
+        }
+
         document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
         document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
         document.getElementById("saidaEsperada").innerHTML = "y: " + entradas.y;
@@ -79,9 +83,7 @@ function inicializarNeuronio() {
         document.getElementById("pesoBayesO4").innerHTML = "<strong> Bayes4: </strong> " + bayes.b4 + "  |  <strong> O4: </strong> " + bayes.o4;
         document.getElementById("pesoBayesO5").innerHTML = "<strong> Bayes5: </strong> " + bayes.b5 + "  |  <strong> O5: </strong> " + bayes.o5;
 
-        if (contEpoca == epocas) {
-            break;
-        }
+
         contEpoca = contEpoca + 1;
     }
 }
