@@ -39,10 +39,11 @@ and open the template in the editor.
                     <div class="col-md-12"><h6>Taxa de aprendizagem</h6><input class="form-control inputs" id="aprendizado" type="text" value="0.1" placeholder="Taxa de aprendizado"/></div><br>
                     <div class="col-md-12"><h6>Quantidade máxima de épocas</h6><input class="form-control inputs" id="quantEpocas" type="text" value="300" placeholder="Quantidade de épocas"/></div>
                     <br>
-                    <a href="#titulo1"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></a>
+                    <a href="#pesosIniciais"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></a>
                 </div>
             </div>
             <div class="row">
+                <br/><div class="col-md-12"><h6 id="pesosIniciais" class="alinhar"></h6></div>
                 <div class="col-md-12"><br><p id="titulo1"></p></div>
                 <div class="col-md-3">
                     <p id="entradas"></p>
@@ -108,10 +109,11 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12"><p id="titulo4"></p></div>
-                <div class="col-md-12"><div id="interacao"></div></div>
-                <br/><div class="col-md-12"><div class="alinhar" id="log"></div></div>
-                <a href="index.php"><button type="button" id="limpar" class="button button-primary form-control"></button></a>
+                <p class="col-md-12" id="titulo4"></p>
+                <div class="col-md-12" id="interacao"></div>
+                <br/><br/>
+                <div class="col-md-12 alinhar" id="log"></div>
+                <div class="col-md-12 alinhar"><strong><a href="index.php" id="limpar"></strong></a></div>
             </div>
         </div>
     </body>

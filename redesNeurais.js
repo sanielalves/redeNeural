@@ -26,7 +26,7 @@ function inicializarNeuronio() {
     var entradas = {x1: x1, x2: x2, y: y};
     var pesosEntrada = {w13: 0.5, w14: 0.9, w23: 0.4, w24: 1.0, w35: -1.2, w45: 1.1};
     var bayes = {b3: Q3, b4: Q4, b5: Q5, o3: 0.8, o4: -0.1, o5: 0.3};
-    alert("Pesos sinápticos iniciais: w13: " + pesosEntrada.w13 + " | w14: " + pesosEntrada.w14 + " | w23: " + pesosEntrada.w23 + " | w24: " + pesosEntrada.w24 + " | w35: " + pesosEntrada.w35 + " | w45: " + pesosEntrada.w45 + " | Q3: " + bayes.o3 + " | Q4: " + bayes.o4 + " | Q5: " + bayes.o5);
+    document.getElementById("pesosIniciais").innerHTML = "Pesos Sinápticos Iniciais: W13: " + pesosEntrada.w13 + " | W14: " + pesosEntrada.w14 + " | W23: " + pesosEntrada.w23 + " | W24: " + pesosEntrada.w24 + " | W35: " + pesosEntrada.w35 + " | W45: " + pesosEntrada.w45 + " | Q3: " + bayes.o3 + " | Q4: " + bayes.o4 + " | Q5: " + bayes.o5;
 
     var saidas = ativacaoNeuronio(entradas, pesosEntrada, bayes);
     var interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
@@ -56,7 +56,7 @@ function inicializarNeuronio() {
     document.getElementById("titulo4").innerHTML = "<h3>Passo 4: Interação</h3>";
     document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + contEpoca;
     document.getElementById("log").innerHTML = "<h6><strong>As saídas de cada época podem ser vistas no log. Veja no console em ferramentas de desenvolvedor.</strong></h6>";
-    document.getElementById("limpar").innerHTML = "Limpar tudo";
+    document.getElementById("limpar").innerHTML = "LIMPAR TUDO";
 
     while (saidas.y5 > y) {
         document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + contEpoca;
