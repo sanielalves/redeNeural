@@ -3,11 +3,14 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+
+    Created on : 11/06/2018, 00:56:52
+    Author     : Saniel Barros Alves
 -->
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <script type="text/javascript" src="redesNeurais.js"></script>
         <!--<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
@@ -33,7 +36,8 @@ and open the template in the editor.
                     <img id='img' src="img-rede-neural.png" id="img">
                 </div>
                 <div class="col-md-12" id="botao">
-                    <span>Taxa de aprendizagem</span><input class="form-control" id="aprendizado" type="text" value="0.1" placeholder="Taxa de aprendizado"/> 
+                    <div class="col-md-12"><h6>Taxa de aprendizagem</h6><input class="form-control inputs" id="aprendizado" type="text" value="0.1" placeholder="Taxa de aprendizado"/></div><br>
+                    <div class="col-md-12"><h6>Quantidade máxima de épocas</h6><input class="form-control inputs" id="quantEpocas" type="text" value="300" placeholder="Quantidade de épocas"/></div>
                     <br>
                     <a href="#titulo1"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></a>
                 </div>
@@ -106,6 +110,8 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-12"><p id="titulo4"></p></div>
                 <div class="col-md-12"><div id="interacao"></div></div>
+                <br/><div class="col-md-12"><div class="alinhar" id="log"></div></div>
+                <a href="index.php"><button type="button" id="limpar" class="button button-primary form-control"></button></a>
             </div>
         </div>
     </body>

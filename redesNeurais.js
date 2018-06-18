@@ -1,12 +1,22 @@
+/*
+ To change this license header, choose License Headers in Project Properties.
+ To change this template file, choose Tools | Templates
+ and open the template in the editor.
+ 
+ Created on : 11/06/2018, 00:56:52
+ Author     : Saniel Barros Alves
+ */
 
 function inicializarNeuronio() {
     var x1 = document.getElementById("x1").value;
     var x2 = document.getElementById("x2").value;
     var y = document.getElementById("y").value;
+
     var Q3 = document.getElementById("Q3").value;
     var Q4 = document.getElementById("Q4").value;
     var Q5 = document.getElementById("Q5").value;
     var aprendizado = document.getElementById("aprendizado").value;
+    var epocas = document.getElementById("quantEpocas").value;
 
     /*Inicialização do neurônio*/
     document.getElementById("titulo1").innerHTML = "<h3>Passo 1: Inicializando Neurônio</h3>";
@@ -16,11 +26,13 @@ function inicializarNeuronio() {
     var entradas = {x1: x1, x2: x2, y: y};
     var pesosEntrada = {w13: 0.5, w14: 0.9, w23: 0.4, w24: 1.0, w35: -1.2, w45: 1.1};
     var bayes = {b3: Q3, b4: Q4, b5: Q5, o3: 0.8, o4: -0.1, o5: 0.3};
+    alert("Pesos sinápticos iniciais: w13: " + pesosEntrada.w13 + " | w14: " + pesosEntrada.w14 + " | w23: " + pesosEntrada.w23 + " | w24: " + pesosEntrada.w24 + " | w35: " + pesosEntrada.w35 + " | w45: " + pesosEntrada.w45 + " | Q3: " + bayes.o3 + " | Q4: " + bayes.o4 + " | Q5: " + bayes.o5);
 
     var saidas = ativacaoNeuronio(entradas, pesosEntrada, bayes);
     var interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
     pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
     bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
+
 
     document.getElementById("entradas").innerHTML = "<h5>Sinais de entrada</h5>";
     document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
@@ -40,20 +52,24 @@ function inicializarNeuronio() {
     document.getElementById("pesoBayesO4").innerHTML = "<strong> Bayes4: </strong> " + bayes.b4 + "  |  <strong> O4: </strong> " + bayes.o4;
     document.getElementById("pesoBayesO5").innerHTML = "<strong> Bayes5: </strong> " + bayes.b5 + "  |  <strong> O5: </strong> " + bayes.o5;
 
-    var ciclo = 1;
+    var contEpoca = 1;
     document.getElementById("titulo4").innerHTML = "<h3>Passo 4: Interação</h3>";
-    document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + ciclo;
+    document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + contEpoca;
+    document.getElementById("log").innerHTML = "<h6><strong>As saídas de cada época podem ser vistas no log. Veja no console em ferramentas de desenvolvedor.</strong></h6>";
+    document.getElementById("limpar").innerHTML = "Limpar tudo";
 
-    while (saidas.y5 > 0.1) {
-        document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + ciclo;
-        console.log("Ciclo: " + ciclo + " | Saída: " + saidas.y5);
-        alert(saidas.y5);
+    while (saidas.y5 > y) {
+        document.getElementById("interacao").innerHTML = "Quantidade de interações feitas: " + contEpoca;
+        console.log("Épocas: " + contEpoca + " | Saída: " + saidas.y5);
         //alert("w13: " + pesosEntrada.w13 + " - w14: " + pesosEntrada.w14 + " - w23: " + pesosEntrada.w23 + " - w24: " + pesosEntrada.w24 + " - w35: " + pesosEntrada.w35 + " - w45: " + pesosEntrada.w45);
         saidas = ativacaoNeuronio(entradas, pesosEntrada, bayes);
         interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
         pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
         bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
-        ciclo = ciclo + 1;
+        if (contEpoca == epocas) {
+            break;
+        }
+        contEpoca = contEpoca + 1;
     }
 }
 
@@ -72,7 +88,7 @@ function ativacaoNeuronio(entradas, pesosEntrada, bayes) { //Calculando saídas 
     document.getElementById("camadaSaida").innerHTML = "<h5>Camada de Saída</h5>";
     var sigmoid5 = ((y3 * pesosEntrada.w35) + (y4 * pesosEntrada.w45)) + (bayes.b5 * bayes.o5);
     var y5 = (1 / (1 + Math.pow(euler, -(sigmoid5))));
-    document.getElementById("y5").innerHTML = "y5: " + y5;
+    document.getElementById("y5").innerHTML = "<strong>y5: " + y5 + "</strong>";
 
     var saidas = {y3: y3, y4: y4, y5: y5};
     return saidas;

@@ -2,12 +2,10 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
-*/
-/* 
-    Created on : 11/06/2018, 00:56:52
-    Author     : Saniel
-*/
 
+    Created on : 11/06/2018, 00:56:52
+    Author     : Saniel Barros Alves
+*/
 
 
 #img{
@@ -69,8 +67,17 @@ and open the template in the editor.
     margin: 54px 778px;
 }
 
-#aprendizado{
-    width: 20%;
-    margin-left: 445px;
+.alinhar{
+    background-color: yellowgreen;
     text-align: center;
+}
+
+.inputs{
+    width: 25%;
+    margin-left: 406px;
+    text-align: center;
+}
+
+#y5{
+    color: green;
 }

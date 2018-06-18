@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Yves ClÃªuder
- * Date: 11/06/2018
- * Time: 08:08
- */
 
 // Atribuindo os valores
 
