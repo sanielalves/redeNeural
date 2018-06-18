@@ -89,9 +89,9 @@ and open the template in the editor.
                 <div class="col-md-6">
                     <p id="camadaSaida2"></p>
                     <p id="erroSaida"></p>
+                    <p id="correcaoPesoO5"></p>
                     <p id="correcaoPesoW35"></p>
                     <p id="correcaoPesoW45"></p>
-                    <p id="correcaoPesoO5"></p>
                 </div>
                 <div class="col-md-3">
                     <p id="camadasOcultas2"></p>
