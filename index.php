@@ -42,8 +42,9 @@ and open the template in the editor.
                     <a href="#pesosIniciais"><button type="button" onclick="inicializarNeuronio()" class="button button-primary form-control">Iniciar Neurônio</button></a>
                 </div>
             </div>
+            <br/>
             <div class="row">
-                <br/><div class="col-md-12"><h6 id="pesosIniciais" class="alinhar"></h6></div>
+                <div class="col-md-12"><h6 id="pesosIniciais" class="alinhar"></h6></div>
                 <div class="col-md-12"><br><p id="titulo1"></p></div>
                 <div class="col-md-3">
                     <p id="entradas"></p>

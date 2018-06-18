@@ -33,7 +33,6 @@ function inicializarNeuronio() {
     pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
     bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
 
-
     document.getElementById("entradas").innerHTML = "<h5>Sinais de entrada</h5>";
     document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
     document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
@@ -66,6 +65,20 @@ function inicializarNeuronio() {
         interacao = treinarNeuronio(saidas, entradas, pesosEntrada, bayes, aprendizado);
         pesosEntrada = {w13: interacao.w13, w14: interacao.w14, w23: interacao.w23, w24: interacao.w24, w35: interacao.w35, w45: interacao.w45};
         bayes = {b3: -1, b4: -1, b5: -1, o3: interacao.o3, o4: interacao.o4, o5: interacao.o5};
+
+        document.getElementById("entradax1").innerHTML = "x1: " + entradas.x1;
+        document.getElementById("entradax2").innerHTML = "x2: " + entradas.x2;
+        document.getElementById("saidaEsperada").innerHTML = "y: " + entradas.y;
+        document.getElementById("pesoEntradaW13").innerHTML = "W13: " + pesosEntrada.w13;
+        document.getElementById("pesoEntradaW14").innerHTML = "W14: " + pesosEntrada.w14;
+        document.getElementById("pesoEntradaW23").innerHTML = "W23: " + pesosEntrada.w23;
+        document.getElementById("pesoEntradaW24").innerHTML = "W24: " + pesosEntrada.w24;
+        document.getElementById("pesoEntradaW35").innerHTML = "W35: " + pesosEntrada.w35;
+        document.getElementById("pesoEntradaW45").innerHTML = "W45: " + pesosEntrada.w45;
+        document.getElementById("pesoBayesO3").innerHTML = "<strong> Bayes3: </strong> " + bayes.b3 + "  |  <strong> O3: </strong>" + bayes.o3;
+        document.getElementById("pesoBayesO4").innerHTML = "<strong> Bayes4: </strong> " + bayes.b4 + "  |  <strong> O4: </strong> " + bayes.o4;
+        document.getElementById("pesoBayesO5").innerHTML = "<strong> Bayes5: </strong> " + bayes.b5 + "  |  <strong> O5: </strong> " + bayes.o5;
+
         if (contEpoca == epocas) {
             break;
         }
